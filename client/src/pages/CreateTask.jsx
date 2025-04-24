@@ -3,12 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 
 function CreateTask() {
+  const getCurrentDateTimeLocal = () => {
+    const now = new Date();
+    const offset = now.getTimezoneOffset() * 60000;
+    return new Date(now.getTime() - offset).toISOString().slice(0, 16);
+  };
+
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     status: "pending",
     priority: "medium",
-    dueDate: "",
+    dueDate: getCurrentDateTimeLocal()
   });
   const [errors, setErrors] = useState({});
   const [submitError, setSubmitError] = useState(null);
@@ -25,8 +31,8 @@ function CreateTask() {
 
     if (formData.dueDate) {
       const selectedDate = new Date(formData.dueDate);
-      const today = new Date();
-      if (selectedDate < today) {
+      const now = new Date();
+      if (selectedDate.getTime() < now.getTime()) {
         newErrors.dueDate = "Due date must be in the future";
       }
     }
@@ -141,7 +147,7 @@ function CreateTask() {
         <div className="mb-3">
           <label className="form-label">Due Date</label>
           <input
-            type="date"
+            type="datetime-local"
             name="dueDate"
             className={`form-control ${errors.dueDate ? "is-invalid" : ""}`}
             value={formData.dueDate}

@@ -12,16 +12,23 @@ function EditTask() {
   const navigate = useNavigate();
   const { id } = useParams();
 
+  const formatDateTimeLocal = (isoString) => {
+    const date = new Date(isoString);
+    const offset = date.getTimezoneOffset() * 60000; // Convert timezone offset to milliseconds
+    const localDate = new Date(date.getTime() - offset); // Adjust to local time
+    return localDate.toISOString().slice(0, 16); // Return YYYY-MM-DDTHH:MM
+  };
+
   useEffect(() => {
     const fetchTask = async () => {
       try {
-        const response = await api.getTask(id);
-        const task = response.data;
+        const task = await api.getTask(id);
+        // const task = response.data;
         setTitle(task.title);
         setDescription(task.description);
         setStatus(task.status);
         setPriority(task.priority);
-        setDueDate(task.dueDate ? task.dueDate.split("T")[0] : "");
+        setDueDate(task.dueDate ? formatDateTimeLocal(task.dueDate) : "");
       } catch (error) {
         console.error("Error fetching task", error);
       }
@@ -100,7 +107,8 @@ function EditTask() {
         <div className="mb-3">
           <label className="form-label">Due Date</label>
           <input
-            type="date"
+            type="datetime-local"
+            name="dueDate"
             className="form-control"
             value={dueDate}
             onChange={(e) => setDueDate(e.target.value)}
