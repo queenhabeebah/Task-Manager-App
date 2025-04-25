@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://task-manager-server-eojg.onrender.com";
+const API_URL = "https://task-manager-server-eojg.onrender.com/api";
 
 const handleApiError = (error) => {
   if (error.response) {
