@@ -21,7 +21,22 @@ app.use((err, req, res, next) => {
   });
 
 // Middleware
-app.use(cors())
+const allowedOrigins = [process.env.CLIENT_URL];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('CORS policy does not allow access from the specified Origin.'));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 app.use(express.json())
 
 // Routes
