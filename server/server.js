@@ -1,10 +1,10 @@
 import express from "express"
 import cors from "cors"
-import dotenv from "dotenv"
+// import dotenv from "dotenv"
 import connectDB from "./config/db.js"
 import taskRoutes from './routes/taskRoutes.js'
 
-dotenv.config()
+// dotenv.config()
 
 // connect to MongoDB
 connectDB()
