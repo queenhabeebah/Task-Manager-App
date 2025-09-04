@@ -1,0 +1,13 @@
+@media (max-width: 767px) {
+  .table-responsive{
+    margin: auto;
+
+   }
+.table-responsive th:nth-child(2),
+.table-responsive th:nth-child(4),
+.table-responsive td:nth-child(2),
+.table-responsive td:nth-child(4) {
+  display: none ;
+}
+
+}
