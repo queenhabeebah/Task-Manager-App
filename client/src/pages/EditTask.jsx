@@ -54,7 +54,7 @@ function EditTask() {
   };
 
   return (
-    <div className="container row justify-content-center">
+    <div className="container row justify-content-center mb-5">
       <div className="col-md-6">
         <h2 className="mb-4">Edit Task</h2>
         <form onSubmit={handleSubmit}>

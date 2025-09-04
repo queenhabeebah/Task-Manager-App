@@ -78,7 +78,7 @@ function CreateTask() {
   };
 
   return (
-    <div className="container row justify-content-center">
+    <div className="container row justify-content-center mb-5">
       <div className="col-md-6">
 
       <h2 className="mb-4">Create New Task</h2>
