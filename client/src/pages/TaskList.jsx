@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../services/api";
+import { MdDelete, MdEdit } from 'react-icons/md'
+import { FaEdit } from 'react-icons/fa'
 
 function TaskList() {
   const [tasks, setTasks] = useState([]);
@@ -113,10 +115,12 @@ function TaskList() {
                         to={`/edit/${task._id}`}
                         className="btn btn-sm btn-primary me-2"
                       >
-                        Edit
+                  
+                        <MdEdit size={24} />
                       </Link>
                       <button className="btn btn-sm btn-danger" onClick={() => handleDelete(task._id)}>
-                        Delete
+                    
+                        <MdDelete size={24} />
                       </button>
                     </div>
                   </td>
