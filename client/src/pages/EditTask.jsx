@@ -54,71 +54,73 @@ function EditTask() {
   };
 
   return (
-    <div>
-      <h2 className="mb-4">Edit Task</h2>
-      <form onSubmit={handleSubmit}>
-        {/* Same form fields as CreateTask */}
-        <div className="mb-3">
-          <label className="form-label">Title</label>
-          <input
-            type="text"
-            className="form-control"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-        </div>
+    <div className="container row justify-content-center">
+      <div className="col-md-6">
+        <h2 className="mb-4">Edit Task</h2>
+        <form onSubmit={handleSubmit}>
+          {/* Same form fields as CreateTask */}
+          <div className="mb-3">
+            <label className="form-label">Title</label>
+            <input
+              type="text"
+              className="form-control"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
+          </div>
 
-        <div className="mb-3">
-          <label className="form-label">Description</label>
-          <textarea
-            className="form-control"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
+          <div className="mb-3">
+            <label className="form-label">Description</label>
+            <textarea
+              className="form-control"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
 
-        <div className="mb-3">
-          <label className="form-label">Status</label>
-          <select
-            className="form-control"
-            value={status}
-            onChange={(e) => setStatus(e.target.value)}
-          >
-            <option value="pending">Pending</option>
-            <option value="in-progress">In Progress</option>
-            <option value="completed">Completed</option>
-          </select>
-        </div>
+          <div className="mb-3">
+            <label className="form-label">Status</label>
+            <select
+              className="form-control"
+              value={status}
+              onChange={(e) => setStatus(e.target.value)}
+            >
+              <option value="pending">Pending</option>
+              <option value="in-progress">In Progress</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
 
-        <div className="mb-3">
-          <label className="form-label">Priority</label>
-          <select
-            className="form-control"
-            value={priority}
-            onChange={(e) => setPriority(e.target.value)}
-          >
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-          </select>
-        </div>
+          <div className="mb-3">
+            <label className="form-label">Priority</label>
+            <select
+              className="form-control"
+              value={priority}
+              onChange={(e) => setPriority(e.target.value)}
+            >
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
 
-        <div className="mb-3">
-          <label className="form-label">Due Date</label>
-          <input
-            type="datetime-local"
-            name="dueDate"
-            className="form-control"
-            value={dueDate}
-            onChange={(e) => setDueDate(e.target.value)}
-          />
-        </div>
+          <div className="mb-3">
+            <label className="form-label">Due Date</label>
+            <input
+              type="datetime-local"
+              name="dueDate"
+              className="form-control"
+              value={dueDate}
+              onChange={(e) => setDueDate(e.target.value)}
+            />
+          </div>
 
-        <button type="submit" className="btn btn-primary">
-          Update Task
-        </button>
-      </form>
+          <button type="submit" className="btn btn-primary">
+            Update Task
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

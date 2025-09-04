@@ -78,7 +78,9 @@ function CreateTask() {
   };
 
   return (
-    <div>
+    <div className="container row justify-content-center">
+      <div className="col-md-6">
+
       <h2 className="mb-4">Create New Task</h2>
       {submitError && (
         <div className="alert alert-danger" role="alert">
@@ -94,7 +96,7 @@ function CreateTask() {
             className={`form-control ${errors.title ? "is-invalid" : ""}`}
             value={formData.title}
             onChange={handleChange}
-          />
+            />
           {errors.title && (
             <div className="invalid-feedback">{errors.title}</div>
           )}
@@ -106,7 +108,7 @@ function CreateTask() {
             className={`form-control ${errors.description ? "is-invalid" : ""}`}
             value={formData.description}
             onChange={handleChange}
-          />
+            />
           {errors.description && (
             <div className="invalid-feedback">{errors.description}</div>
           )}
@@ -134,7 +136,7 @@ function CreateTask() {
             className={`form-control ${errors.priority ? "is-invalid" : ""}`}
             value={formData.priority}
             onChange={handleChange}
-          >
+            >
             <option value="low">Low</option>
             <option value="medium">Medium</option>
             <option value="high">High</option>
@@ -152,7 +154,7 @@ function CreateTask() {
             className={`form-control ${errors.dueDate ? "is-invalid" : ""}`}
             value={formData.dueDate}
             onChange={handleChange}
-          />
+            />
           {errors.dueDate && (
             <div className="invalid-feedback">{errors.dueDate}</div>
           )}
@@ -161,6 +163,7 @@ function CreateTask() {
           {isLoading ? 'Creating...' : 'Create Task'}
         </button>
       </form>
+          </div>
     </div>
   );
 }
